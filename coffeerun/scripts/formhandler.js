@@ -46,8 +46,8 @@
 
     FormHandler.prototype.addDecafRangeHandler = function (fn) {
         $('#strengthLevel').on('change', function (event) {
-            var strength = event.target.value;
-            var coffeeOrder = $('#coffeeOrder').value;
+            var strength = $('#strengthLevel').val();
+            var coffeeOrder = $('#coffeeOrder').val();
             var message = '';
             if (fn(coffeeOrder, strength)) {
                 event.target.setCustomValidity('');
