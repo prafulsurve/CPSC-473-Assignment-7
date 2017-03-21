@@ -18,4 +18,5 @@
         checkList.addRow.call(checkList, data);
     });
     formHandler.addInputHandler(Validation.isCompanyEmail);
+    formHandler.addDecafRangeHandler(Validation.isDecaf);
 })(window);

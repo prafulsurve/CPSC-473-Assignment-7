@@ -2,8 +2,6 @@
     'use strict';
     var App = window.App || {};
     var $ = window.jQuery;
-    window.powers = {};
-    powers = window.powers;
 
     function FormHandler(selector) {
         if (!selector) {
@@ -41,6 +39,20 @@
                 event.target.setCustomValidity('');
             } else {
                 message = emailAddress + ' is not an authorized email address!';
+                event.target.setCustomValidity(message);
+            }
+        });
+    };
+
+    FormHandler.prototype.addDecafRangeHandler = function (fn) {
+        $('#strengthLevel').on('change', function (event) {
+            var strength = event.target.value;
+            var coffeeOrder = $('#coffeeOrder').value;
+            var message = '';
+            if (fn(coffeeOrder, strength)) {
+                event.target.setCustomValidity('');
+            } else {
+                message = 'Caffeine Strength should be less than 20 for Decaf!';
                 event.target.setCustomValidity(message);
             }
         });
